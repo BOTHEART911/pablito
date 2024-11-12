@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cumpleaños de Pablito</title>
+    <style>
+        @font-face {
+            font-family: 'Disney';
+            src: url('https://path/to/your/disney-font.ttf'); /* Reemplaza con la ruta de tu fuente */
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Disney', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .overlay {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .brightness-control {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .circle-image {
+            border-radius: 50%;
+            border: 5px solid yellow;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .second-view {
+            margin-top: 50px;
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .icon img {
+            width: 24px;
+            margin-right: 10px;
+        }
+
+        .button {
+            background-color: #ffcc00;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video de fondo -->
+    <video class="background-video" autoplay loop muted>
+        <source src="https://res.cloudinary.com/your-cloudinary-id/video/upload/videoname.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+    </video>
+
+    <!-- Control de brillo -->
+    <input type="range" min="50" max="150" value="100" class="brightness-control" id="brightnessRange">
+
+    <!-- Primera vista -->
+    <div class="overlay">
+        <div class="content">
+            <h1>Cumpleaños N° 2 de Pablito</h1>
+            <img src="https://res.cloudinary.com/your-cloudinary-id/image/upload/imagenname.jpg" alt="Pablito" class="circle-image">
+            <p>Ven a compartir con nosotros un momento especial para agradecer por un año más de vida de nuestro hermoso hijo Pablo, un regalo de Dios para comprender el poder del amor familiar.</p>
+        </div>
+
+        <!-- Segunda vista -->
+        <div class="second-view">
+            <div class="icon">
+                <img src="https://path/to/calendar-icon.png" alt="Calendario">
+                <p>Sábado 16 de Noviembre</p>
+            </div>
+            <div class="icon">
+                <img src="https://path/to/clock-icon.png" alt="Reloj">
+                <p>5:00 PM</p>
+            </div>
+            <!-- Embed de horario (ajusta el iframe según el servicio) -->
+            <iframe src="https://example.com/embed-horario" width="100%" height="100" frameborder="0"></iframe>
+            <div class="icon">
+                <img src="https://path/to/location-icon.png" alt="Ubicación">
+                <p>Carrera 8 N° 27 – 26<br>Barrio Santander</p>
+            </div>
+            <a href="https://wa.me/57XXXXXXXXX?text=Confirmo%20asistencia%20al%20cumpleaños%20de%20Pablito" class="button">Confirmar asistencia</a>
+        </div>
+    </div>
+
+    <script>
+        // Ajustar el brillo del video
+        const brightnessRange = document.getElementById('brightnessRange');
+        const video = document.querySelector('.background-video');
+
+        brightnessRange.addEventListener('input', () => {
+            const value = brightnessRange.value;
+            video.style.filter = `brightness(${value}%)`;
+        });
+    </script>
+</body>
+</html>
